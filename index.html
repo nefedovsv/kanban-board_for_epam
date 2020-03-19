@@ -1,0 +1,37 @@
+<DOCTYPE html!>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "Stylesheet" href = "index.css">
+    </head>
+
+
+    <body>
+    <Header class="header">
+        <h1 class = "header-text" >Awesome Kanban Board</h1>
+
+        <div class = "sub-menu">
+            <img src="media/avatar.png" alt="avatar" class = "avatar">
+            <img src="media/arrow.png" alt="avatar" class = "arrow">
+            <ul class = "arrow-box">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </div>
+    </Header>
+
+    <div id = "task-container" class="task-container">
+    </div>
+
+    <Footer class="header">
+        <h1 class = "footer-text" >
+            Active tasks: <span id = "backlog-tasks">0</span>
+            Finished tasks: <span id = "finished-tasks">0</span>
+        </h1>
+        <h1 class = "footer-text" >
+           Kanban board by Sergey, 2020
+        </h1>
+    </Footer>
+
+    <script src="index.js" type="module"></script>
+    </body>

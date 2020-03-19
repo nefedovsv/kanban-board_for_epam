@@ -1,0 +1,163 @@
+body {
+  min-width: 500px;
+}
+
+.task-container {
+  background: #86a8e7;
+  height: 90vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background: cornflowerblue;
+  height: 5vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.header-text {
+  color: white;
+  position: relative;
+  font-weight: lighter;
+}
+
+.footer-text {
+  font-size: 25px;
+  color: white;
+  position: relative;
+  font-weight: lighter;
+}
+
+.avatar {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+}
+
+.header ul {
+  display: none;
+}
+
+.sub-menu {
+  float: right;
+  height: 65px;
+}
+
+.sub-menu:hover ul {
+  position: absolute;
+  right: 20px;
+  top: 45px;
+  display: block;
+}
+
+.sub-menu:hover .arrow {
+  transform: rotate(180deg);
+  transition-duration: 0.5s;
+}
+
+.arrow-box {
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  width: 200px;
+  height: 75px;
+  font-size: 30px;
+  text-align: start;
+}
+.arrow-box:after,
+.arrow_box:before {
+  bottom: 100%;
+  left: 65%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow-box:after {
+  border-bottom-color: white;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+.arrow-box li {
+  list-style-type: none;
+  margin: 0 auto;
+}
+
+.todo {
+  border-radius: 10px;
+  display: inline-block;
+  background: #f7f7f7;
+  text-align: left;
+  vertical-align: top;
+  width: 250px;
+  margin: 20px 20px 20px 20px;
+  min-height: 70px;
+}
+
+.todo li {
+  position: relative;
+  right: 35px;
+  text-align: left;
+  list-style-type: none;
+  width: 90%;
+  background: white;
+  margin: 15px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  word-break: break-all;
+  padding: 10px;
+}
+
+.select {
+  position: relative;
+  width: 150px;
+  left: 20px;
+  font-size: 20px;
+  width: 85%;
+}
+
+input {
+  position: relative;
+  border-radius: 5px;
+  width: 85%;
+  height: 30px;
+  left: 20px;
+  font-size: 20px;
+}
+
+.title {
+  position: relative;
+  top: 5px;
+  font-size: 25px;
+  left: 20px;
+}
+
+.add-card {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  left: 20px;
+  font-size: 20px;
+  color: lightseagreen;
+  background-color: #f7f7f7;
+  border: none;
+  cursor: pointer;
+}
+
+.display {
+  display: none;
+  transition: 0.3s linear;
+}
