@@ -1,46 +1,36 @@
-import {
-  createHtmlBlock,
-  deleteTodoFromHtmlElement,
-  setTodoInHTMLElement
-} from "./utils/helpersForHtml";
-import {
-  checkTodoInStore,
-  createStore,
-  deleteTodoFromStore,
-  setTodoInStore
-} from "./utils/helpersForStore";
+import { HtmlBlock } from "./utils/helpersForHtml";
+import { Store } from "./utils/helpersForStore";
 
 localStorage.clear();
 
-const htmlBlockNames = ["backlog", "ready", "inProcess", "finished"];
+const taskBlockNames = ["backlog", "ready", "inProcess", "finished"];
 
-for (let blockName of htmlBlockNames) {
-  createHtmlBlock(blockName);
-  createStore(blockName);
-}
+taskBlockNames.forEach((blockName, index) => {
+  HtmlBlock.create(blockName);
+  Store.create(blockName);
 
-for (let i = 1; i < htmlBlockNames.length; i++) {
-  let name = htmlBlockNames[i];
-  let addCard = document.querySelector(`button[name = ${name}]`);
-  let select = document.querySelector(`select[name = ${name}]`);
+  if (index !== 0) {
+    const addCard = document.querySelector(`button[name = ${blockName}]`);
+    const select = document.querySelector(`select[name = ${blockName}]`);
 
-  addCard.addEventListener("click", function() {
-    select.childNodes.forEach(item => item.remove());
-    checkTodoInStore(name);
-    setTodoInHTMLElement(name);
-  });
+    addCard.addEventListener("click", function() {
+      select.childNodes.forEach(item => item.remove());
+      Store.checkTodo(blockName);
+      HtmlBlock.setTodo(blockName);
+    });
 
-  select.addEventListener("click", function() {
-    Array.from(select.options)
-      .filter(option => option.selected)
-      .map(option => {
-        let { value } = option;
-        option.remove();
-        setTodoInStore(name, value);
-        deleteTodoFromStore(name, value);
-        deleteTodoFromHtmlElement(name, value);
-        setTodoInHTMLElement(name, "ul", value);
-      });
-    if (!Array.from(select.options).length) select.style.display = "none";
-  });
-}
+    select.addEventListener("click", function() {
+      Array.from(select.options)
+        .filter(option => option.selected)
+        .forEach(option => {
+          const { value } = option;
+          option.remove();
+          Store.setTodo(blockName, value);
+          Store.deleteTodo(blockName, value);
+          HtmlBlock.deleteTodo(blockName, value);
+          HtmlBlock.setTodo(blockName, "ul", value);
+        });
+      if (!Array.from(select.options).length) select.style.display = "none";
+    });
+  }
+});

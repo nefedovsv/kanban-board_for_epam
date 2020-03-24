@@ -1,40 +1,43 @@
-body {
+@import "reset.css";
+
+.main {
   min-width: 500px;
 }
 
 .task-container {
-  background: #86a8e7;
   height: 90vh;
+  background: #86a8e7;
 }
 
 .header {
   display: flex;
   flex-direction: row;
-  background: cornflowerblue;
   height: 5vh;
+  padding: 0 15px;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  background: cornflowerblue;
 }
 
 .header-text {
-  color: white;
   position: relative;
+  color: white;
   font-weight: lighter;
+  font-size: 25px;
 }
 
 .footer-text {
-  font-size: 25px;
-  color: white;
   position: relative;
+  color: white;
+  font-size: 25px;
   font-weight: lighter;
 }
 
 .avatar {
-  background-color: white;
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  background-color: white;
 }
 
 .arrow {
@@ -47,15 +50,15 @@ body {
 }
 
 .sub-menu {
-  float: right;
   height: 65px;
+  float: right;
 }
 
 .sub-menu:hover ul {
+  display: block;
   position: absolute;
   right: 20px;
-  top: 45px;
-  display: block;
+  top: 65px;
 }
 
 .sub-menu:hover .arrow {
@@ -65,96 +68,97 @@ body {
 
 .arrow-box {
   position: relative;
-  background: white;
-  border-radius: 5px;
   width: 200px;
   height: 75px;
-  font-size: 30px;
+  border-radius: 5px;
   text-align: start;
+  background: white;
+  font-size: 30px;
 }
+
 .arrow-box:after,
 .arrow_box:before {
+  position: absolute;
+  height: 0;
+  width: 0;
   bottom: 100%;
   left: 65%;
   border: solid transparent;
   content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
   pointer-events: none;
 }
 
 .arrow-box:after {
-  border-bottom-color: white;
-  border-width: 10px;
   margin-left: -10px;
+  border-width: 10px;
+  border-bottom-color: white;
 }
 
 .arrow-box li {
-  list-style-type: none;
   margin: 0 auto;
+  list-style-type: none;
 }
 
 .todo {
-  border-radius: 10px;
   display: inline-block;
-  background: #f7f7f7;
-  text-align: left;
-  vertical-align: top;
   width: 250px;
-  margin: 20px 20px 20px 20px;
   min-height: 70px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 10px;
+  vertical-align: top;
+  text-align: left;
+  background: #f7f7f7;
 }
 
 .todo li {
   position: relative;
-  right: 35px;
-  text-align: left;
-  list-style-type: none;
-  width: 90%;
-  background: white;
+  width: 80%;
   margin: 15px 15px;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 20px;
+  text-align: left;
+  list-style-type: none;
   word-break: break-all;
-  padding: 10px;
+  background: white;
+  font-size: 20px;
 }
 
 .select {
   position: relative;
-  width: 150px;
-  left: 20px;
-  font-size: 20px;
   width: 85%;
+  left: 20px;
+  top: 15px;
+  font-size: 20px;
 }
 
 input {
   position: relative;
-  border-radius: 5px;
   width: 85%;
   height: 30px;
+  top: 10px;
   left: 20px;
+  border-radius: 5px;
   font-size: 20px;
 }
 
 .title {
   position: relative;
   top: 5px;
-  font-size: 25px;
   left: 20px;
+  font-size: 25px;
 }
 
 .add-card {
   position: relative;
-  margin-top: 10px;
-  margin-bottom: 10px;
   left: 20px;
-  font-size: 20px;
-  color: lightseagreen;
-  background-color: #f7f7f7;
+  margin-top: 30px;
+  margin-bottom: 10px;
   border: none;
   cursor: pointer;
+  color: lightseagreen;
+  background-color: #f7f7f7;
+  font-size: 20px;
 }
 
 .display {
