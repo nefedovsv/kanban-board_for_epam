@@ -1,76 +1,50 @@
-const setData = obj => {
+const setData = (obj) => {
   const data = JSON.stringify(obj);
-  return localStorage.setItem("todoList", data);
+  return localStorage.setItem("tasksBoard", data);
 };
 
 export const getData = () => {
-  const data = localStorage.getItem("todoList");
+  const data = localStorage.getItem("tasksBoard");
   return JSON.parse(data);
 };
 
-export const getPreviousBlock = taskBlockName => {
+export const getTodoList = (blockName) => {
   const data = getData();
-  const list = data.map(item => item.title);
-  const index = list.indexOf(taskBlockName);
-  return list[index - 1];
+  return data.filter((item) => item.blockName === blockName)[0].todoList;
 };
 
-export const Store = class {
-  static create(blockName) {
-    const taskBlock = {
-      title: blockName,
-      todoList: []
-    };
+export const createStore = (initialData) => {
+  const store = initialData.map((item) => ({
+    blockName: item.blockName,
+    todoList: [],
+  }));
 
-    const data = getData();
+  setData(store);
+};
 
-    if (!data) return setData([taskBlock]);
+export const setTodoInStore = (blockName, todo) => {
+  const data = getData();
+  const updateData = data.map((item) => {
+    if (item.blockName === blockName) {
+      return { ...item, todoList: [...item.todoList, todo] };
+    }
+    return item;
+  });
+  setData(updateData);
+};
 
-    let sameBlock = data.filter(item => item.title === blockName);
-    if (!sameBlock.length) return setData([...data, taskBlock]);
-  }
+export const deleteTodoFromStore = (blockName, todo) => {
+  const data = getData();
 
-  static deleteTodo(taskBlockName, todo) {
-    const data = getData();
-    const blockName = getPreviousBlock(taskBlockName);
-
-    const updateData = data.map(item => {
-      if (item.title === blockName) {
-        let sort = item.todoList.filter(item => item !== todo);
-        return {
-          ...item,
-          todoList: [...sort]
-        };
-      }
-      return item;
-    });
-    return setData(updateData);
-  }
-
-  static setTodo(taskBlockName, todo) {
-    const data = getData();
-
-    const updateData = data.map(item => {
-      if (item.title === taskBlockName) {
-        return { ...item, todoList: [...item.todoList, todo] };
-      }
-      return item;
-    });
-    setData(updateData);
-  }
-
-  static checkTodo(taskBlockName) {
-    const select = document.querySelector(`select[name = ${taskBlockName}]`);
-    const addCard = document.querySelector(`button[name = ${taskBlockName}]`);
-    const data = getData();
-    const prevBlockName = getPreviousBlock(taskBlockName);
-
-    const taskFromPrevBlock = data.filter(item => item.title === prevBlockName);
-    const taskCount = taskFromPrevBlock[0].todoList.length;
-
-    if (!taskCount) return (addCard.disabled = true);
-
-    select.style.display = "block";
-    select.classList.toggle("display");
-  }
+  const updateData = data.map((item) => {
+    if (item.blockName === blockName) {
+      let sort = item.todoList.filter((item) => item !== todo);
+      return {
+        ...item,
+        todoList: [...sort],
+      };
+    }
+    return item;
+  });
+  return setData(updateData);
 };
