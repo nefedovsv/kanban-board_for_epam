@@ -1,28 +1,28 @@
-export const initialData = [
+export const tasksBlocksDefinition = [
   {
     title: "Backlog",
     type: "input",
-    blockName: "backlog",
+    taskBlockName: "backlog",
     nextBlockName: "ready",
   },
   {
     title: "Ready",
     type: "select",
-    blockName: "ready",
+    taskBlockName: "ready",
     nextBlockName: "inProcess",
     prevBlockName: "backlog",
   },
   {
     title: "In Process",
     type: "select",
-    blockName: "inProcess",
+    taskBlockName: "inProcess",
     nextBlockName: "finished",
     prevBlockName: "ready",
   },
   {
     title: "Finished",
     type: "select",
-    blockName: "finished",
+    taskBlockName: "finished",
     prevBlockName: "inProcess",
   },
 ];

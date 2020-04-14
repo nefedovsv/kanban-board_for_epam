@@ -23,7 +23,7 @@
 }
 
 .task-block-container {
-  min-height: 90vh;
+  height: calc(100vh - 140px);
   background: #86a8e7;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .arrow-box:after,
-.arrow_box:before {
+.arrow-box:before {
   position: absolute;
   height: 0;
   width: 0;
@@ -155,7 +155,6 @@
   font-size: 20px;
 }
 
-.visibility-conditions {
+.hide-element {
   display: none;
-  transition: 0.3s linear;
 }
