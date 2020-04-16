@@ -1,0 +1,160 @@
+.body-container {
+  min-width: 500px;
+}
+
+.header-container,
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  padding: 0 15px;
+  justify-content: space-between;
+  align-items: center;
+  background: cornflowerblue;
+}
+
+.app-headline,
+.activ-task-information,
+.author-information {
+  position: relative;
+  color: white;
+  font-weight: lighter;
+  font-size: 25px;
+}
+
+.task-block-container {
+  height: calc(100vh - 140px);
+  background: #86a8e7;
+}
+
+.header-container ul {
+  display: none;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+}
+
+.nav-container {
+  height: 65px;
+  float: right;
+}
+
+.nav-container:hover ul {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 70px;
+}
+
+.nav-container:hover .arrow {
+  transform: rotate(180deg);
+  transition-duration: 0.5s;
+}
+
+.arrow-box {
+  position: relative;
+  width: 200px;
+  height: 75px;
+  border-radius: 5px;
+  text-align: start;
+  background: white;
+  font-size: 30px;
+}
+
+.arrow-box:after,
+.arrow-box:before {
+  position: absolute;
+  height: 0;
+  width: 0;
+  bottom: 100%;
+  left: 65%;
+  border: solid transparent;
+  content: " ";
+  pointer-events: none;
+}
+
+.arrow-box:after {
+  margin-left: -10px;
+  border-width: 10px;
+  border-bottom-color: white;
+}
+
+.arrow-box li {
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.template-container {
+  display: inline-block;
+  width: 250px;
+  min-height: 70px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 10px;
+  vertical-align: top;
+  text-align: left;
+  background: #f7f7f7;
+}
+
+.template-container li {
+  position: relative;
+  width: 80%;
+  margin: 15px 15px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  list-style-type: none;
+  word-break: break-all;
+  background: white;
+  font-size: 20px;
+}
+
+.template-container-title {
+  position: relative;
+  top: 5px;
+  left: 20px;
+  font-size: 25px;
+}
+
+.template-container-button {
+  position: relative;
+  left: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  color: lightseagreen;
+  background-color: #f7f7f7;
+  font-size: 20px;
+}
+
+.template-container-select {
+  position: relative;
+  width: 85%;
+  left: 20px;
+  top: 15px;
+  font-size: 20px;
+}
+
+.template-container-input {
+  position: relative;
+  width: 85%;
+  height: 30px;
+  top: 10px;
+  left: 20px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.hide-element {
+  display: none;
+}
