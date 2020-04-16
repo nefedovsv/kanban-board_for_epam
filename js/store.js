@@ -1,4 +1,4 @@
-import { tasksBlocksDefinition } from "./definitions";
+import { tasksBlocksCollection } from "./definitions";
 
 const writeDataInStorage = (taskBoardData) => {
   const data = JSON.stringify(taskBoardData);
@@ -10,9 +10,9 @@ const readDataFromStorage = () => {
   return JSON.parse(data);
 };
 
-const initialize = (tasksBlocksDefinition) => {
-  const taskBoardData = tasksBlocksDefinition.map((definition) => ({
-    name: definition.taskBlockName,
+const initialize = (tasksBlocksCollection) => {
+  const taskBoardData = tasksBlocksCollection.map((blockName) => ({
+    name: blockName,
     tasksList: [],
   }));
 
@@ -20,8 +20,8 @@ const initialize = (tasksBlocksDefinition) => {
 };
 
 class Store {
-  constructor(tasksBlocksDefinition) {
-    initialize(tasksBlocksDefinition);
+  constructor(tasksBlocksCollection) {
+    initialize(tasksBlocksCollection);
   }
 
   getTasksList(taskBlockName) {
@@ -57,4 +57,4 @@ class Store {
   }
 }
 
-export const store = new Store(tasksBlocksDefinition);
+export const store = new Store(tasksBlocksCollection);
